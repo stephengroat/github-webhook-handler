@@ -37,8 +37,6 @@ function create (options) {
   }
 
   function verify (signature, data) {
-    console.log(data.toString());
-    console.log(JSON.parse(data.toString()));
     console.log(signature);
     console.log(sign(data));
     return bufferEq(Buffer.from(signature), Buffer.from(sign(data)))
@@ -81,6 +79,7 @@ function create (options) {
 
       var obj
 
+      console.log(JSON.parse(req.body.toString()));
       if (!verify(sig, data))
         return hasError('X-Hub-Signature does not match blob signature')
 
