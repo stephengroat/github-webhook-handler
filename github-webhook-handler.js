@@ -37,7 +37,8 @@ function create (options) {
   }
 
   function verify (signature, data) {
-    console.log(data.toString('utf8'));
+    console.log(data.toString());
+    console.log(JSON.parse(data.toString()));
     console.log(signature);
     console.log(sign(data));
     return bufferEq(Buffer.from(signature), Buffer.from(sign(data)))
