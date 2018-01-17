@@ -79,7 +79,7 @@ function create (options) {
 
       var obj
 
-      console.log(req.body)
+      console.log('calcsha1=', crypto.createHmac('sha1', options.secret).update(req.body.toString()).digest('hex'))
       if (!verify(sig, req.body.toString()))
         return hasError('X-Hub-Signature does not match blob signature')
 
